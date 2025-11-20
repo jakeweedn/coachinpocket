@@ -19,7 +19,6 @@ export class RoutesController extends BaseController {
     }
 
     async getAllRoutes(request, response, next) {
-        await routesService.getAllRoutes()
 
 
 
@@ -27,6 +26,26 @@ export class RoutesController extends BaseController {
     }
 
     async createRoute(request, response, next) {
+
+        try {
+            const routeData = request.body
+
+            const userId = request.userInfo.id;
+            routeData.authorId = userId;
+
+            const createdRoute = await routesService.createRoute(routeData)
+            console.log('Whats up?')
+
+            response.send(createdRoute)
+
+        }
+
+        catch (error) {
+            next(error)
+
+
+        }
+
 
 
 

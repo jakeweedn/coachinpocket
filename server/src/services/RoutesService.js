@@ -1,3 +1,4 @@
+import { dbContext } from "../db/DbContext.js"
 
 
 class RoutesService {
@@ -6,6 +7,13 @@ class RoutesService {
 
 
 
+    }
+
+    async createRoute(routeData) {
+
+        const route = await dbContext.Routes.create(routeData)
+
+        await route.populate('setter')
     }
 
 
