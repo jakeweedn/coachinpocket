@@ -46,7 +46,7 @@ export class RoutesController extends BaseController {
             const routeData = request.body
 
             // const userId = request.userInfo.id;
-            // routeData.authorId = userId;
+            // routeData.setterId = userId;
 
             const createdRoute = await routesService.createRoute(routeData)
             console.log('Whats up?')
