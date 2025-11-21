@@ -10,11 +10,14 @@ export const RouteSchema = new Schema(
         gripType: { type: String, required: true },
         numberOfMoves: { type: Number, min: 0, max: 20 },
         style: { type: String, required: true },
-        rating: { type: Number, min: 1, max: 5, required: true },
+        rating: { type: Number, min: 1, max: 5, }, //proably not in body of post request, add later like 'completed' in REST 
 
-        setterId: { type: Schema.ObjectId, ref: 'Account', required: true }
+        setterId: { type: Schema.ObjectId, ref: 'Account' }
+        //create setter account? Also add required back on... 
 
     }, { timeStamps: true, toJSON: { virtuals: true } }
+
+    //When we populate. It's like a getter. All we are doing is using the setterId to 'get' the setter as a whole and not just the id.
 
 
 )

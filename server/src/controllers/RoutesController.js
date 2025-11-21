@@ -12,13 +12,28 @@ export class RoutesController extends BaseController {
         this.router
             .get('', this.getAllRoutes)
 
-            .use(Auth0Provider.getAuthorizedUserInfo)
+            // .use(Auth0Provider.getAuthorizedUserInfo)
 
             .post('', this.createRoute)
+            .delete('/:routeId', this.deleteRoute)
 
     }
 
     async getAllRoutes(request, response, next) {
+
+        try {
+            const routes = await routesService.getAllRoutes()
+            response.send(routes)
+
+
+        }
+        catch (error) {
+            next(error)
+
+
+        }
+
+
 
 
 
@@ -30,8 +45,8 @@ export class RoutesController extends BaseController {
         try {
             const routeData = request.body
 
-            const userId = request.userInfo.id;
-            routeData.authorId = userId;
+            // const userId = request.userInfo.id;
+            // routeData.authorId = userId;
 
             const createdRoute = await routesService.createRoute(routeData)
             console.log('Whats up?')
@@ -45,6 +60,41 @@ export class RoutesController extends BaseController {
 
 
         }
+
+
+
+
+    }
+    //Formatting post request?
+    //How much of body will I have to renter every time. Just the values or the properties themselves? 
+
+    //For mobile app? Looks like I need different framework? 
+
+    async deleteRoute(request, response, next) {
+
+        try {
+
+            const routeId = request.params.routeId
+
+
+            // const userId = request.userInfo.id;
+            // routeData.authorId = userId 
+
+            const routeToDelete = await routesService.deleteRoute(routeId)
+
+            response.send(routeToDelete)
+
+        }
+
+        catch (error) {
+            next(error)
+
+        }
+
+
+
+
+
 
 
 
