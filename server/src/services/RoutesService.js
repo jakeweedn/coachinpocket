@@ -18,6 +18,7 @@ class RoutesService {
 
     }
 
+    //Only setters should be able to create routes! 
     async createRoute(routeData) {
 
         const createdRoute = await dbContext.Routes.create(routeData)
@@ -47,7 +48,30 @@ class RoutesService {
     }
 
 
+    //Will allow users to mark the route as completed 
+    async completedRoute(routeId) {
+
+        const completedRoute = await dbContext.Routes.findById(routeId)
+
+        if (!completedRoute) {
+
+            throw new Error("There is no route here. Bad id")
+        }
+
+        completedRoute.completed = true
+
+        await completedRoute.save()
+
+        return completedRoute
+
+
+    }
 
 }
+
+
+
+
+
 
 export const routesService = new RoutesService()

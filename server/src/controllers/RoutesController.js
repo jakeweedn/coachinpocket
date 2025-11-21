@@ -15,6 +15,7 @@ export class RoutesController extends BaseController {
             // .use(Auth0Provider.getAuthorizedUserInfo)
 
             .post('', this.createRoute)
+            .put('/:routeId', this.completedRoute)
             .delete('/:routeId', this.deleteRoute)
 
     }
@@ -39,6 +40,7 @@ export class RoutesController extends BaseController {
 
 
     }
+    //Only setters should be able to create routes! 
 
     async createRoute(request, response, next) {
 
@@ -93,12 +95,25 @@ export class RoutesController extends BaseController {
 
 
 
+    }
+    //Only setters should be able to create routes! 
+    async completedRoute(request, response, next) {
 
 
+        try {
+
+            const routeId = request.params.routeId
+
+            const completedRoute = await routesService.completedRoute(routeId)
+            response.send(completedRoute)
+
+        }
+
+        catch (error) {
+            next(error)
 
 
-
-
+        }
     }
 
 
