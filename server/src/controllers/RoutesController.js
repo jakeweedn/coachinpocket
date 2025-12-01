@@ -3,6 +3,7 @@ import BaseController from "../utils/BaseController.js";
 import { routesService } from "../services/RoutesService.js";
 
 
+
 //sometimes with intellisense, I have to simply close my project and reopen it. 
 
 export class RoutesController extends BaseController {
@@ -11,6 +12,7 @@ export class RoutesController extends BaseController {
         super('api/routes')
         this.router
             .get('', this.getAllRoutes)
+
 
             // .use(Auth0Provider.getAuthorizedUserInfo)
 
@@ -23,6 +25,7 @@ export class RoutesController extends BaseController {
     async getAllRoutes(request, response, next) {
 
         try {
+            console.log('getting all routes')
             const routes = await routesService.getAllRoutes()
             response.send(routes)
 
@@ -45,13 +48,14 @@ export class RoutesController extends BaseController {
     async createRoute(request, response, next) {
 
         try {
+            console.log('hello?')
             const routeData = request.body
 
             // const userId = request.userInfo.id;
             // routeData.setterId = userId;
 
             const createdRoute = await routesService.createRoute(routeData)
-            console.log('Whats up?')
+
 
             response.send(createdRoute)
 
@@ -115,6 +119,9 @@ export class RoutesController extends BaseController {
 
         }
     }
+
+
+
 
 
 }
