@@ -1,9 +1,11 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import RouteCard from '@/components/globals/RouteCard.vue';
 import { routeSectionsService } from '@/services/RouteSectionsService.js';
 import { routesService } from '@/services/RoutesService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
+import { all } from 'axios';
 import { computed, onMounted, ref } from 'vue';
 
 
@@ -15,7 +17,7 @@ import { computed, onMounted, ref } from 'vue';
 
 
 const routes = computed(() => {
-  if (selectedWallSection.value == 'all') {
+  if (selectedWallSection.value == 'All') {
     return AppState.routes
 
   }
@@ -34,7 +36,7 @@ const routeSections = computed(() => AppState.routeSections)
 
 
 const account = computed(() => AppState.account) //come back, do we need on this app? 
-const selectedWallSection = ref('all')
+const selectedWallSection = ref('All')
 
 
 // const wallSections = [
@@ -108,17 +110,37 @@ async function getRouteSections() {
 
   <section class="container">
 
+
+
+
+
     <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name">
 
       <div @click="selectedWallSection = routeSection.name" role="button">
         {{ routeSection.name }}
 
+
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+  <section class="container">
+    <div class="row">
+      <div v-for="route in routes" :key="route.id">
+        <RouteCard :route="route" />
+
+
       </div>
 
 
 
-
     </div>
+
+
 
   </section>
 
