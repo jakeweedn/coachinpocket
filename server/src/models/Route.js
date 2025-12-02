@@ -3,7 +3,7 @@ import { Schema } from "mongoose";
 
 export const RouteSchema = new Schema(
     {
-        grade: { type: Number, min: 0, max: 20, required: true },
+        grade: { type: String, required: true },
         color: { type: String, required: true },
         wallSection: { type: String, required: true },
 
