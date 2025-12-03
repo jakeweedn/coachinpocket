@@ -114,17 +114,22 @@ async function getRouteSections() {
 
 
 
-    <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name">
+    <div class="row m-2">
 
-      <div @click="selectedWallSection = routeSection.name" role="button">
-        {{ routeSection.name }}
+      <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name" class="col-sm-3">
 
 
+        <button @click="selectedWallSection = routeSection.name" class="btn btn-secondary m-2">
+          {{ routeSection.name }}
+
+
+
+        </button>
 
       </div>
 
-
     </div>
+
 
   </section>
 

@@ -17,11 +17,16 @@ watch(theme, () => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md bg-codeworks border-bottom border-vue">
-    <div class="container gap-2">
+  <nav class="navbar navbar-expand-md bg-red border-bottom border-vue">
+    <div class="container gap-2 d-flex justify-content-center">
       <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center text-light">
-        <img class="navbar-brand" alt="logo" src="/img/cw-logo.png" height="45" />
-        <b class="fs-5">Vue Starter</b>
+        <!-- <img class="navbar-brand" alt="logo" src="/img/cw-logo.png" height="45" />
+         -->
+        <div>
+          <h1> 🧗‍♀️
+            <span class="fs-5"> Coach in Pocket</span>
+          </h1>
+        </div>
       </RouterLink>
       <!-- collapse button -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links"
@@ -64,5 +69,6 @@ a {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+
 }
 </style>
