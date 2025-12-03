@@ -1,6 +1,7 @@
 import { AppState } from "@/AppState.js";
 import { api } from "./AxiosService.js";
 import { Route } from "@/models/Route.js";
+import { logger } from "@/utils/Logger.js";
 
 
 class RoutesService {
@@ -14,6 +15,14 @@ class RoutesService {
         AppState.routes = routes
 
 
+
+
+    }
+
+    async setActiveRoute(selectedRoute) {
+
+        AppState.activeRoute = selectedRoute;
+        logger.log('Route is now active')
 
 
     }

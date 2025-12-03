@@ -12,6 +12,9 @@ export const AppState = reactive({
   /** @type {Route[]} */
   routes: [],
 
+  /** @type {Route} */
+  activeRoute: null,
+
   /** @type {RouteSection[]} */
   routeSections: []
 

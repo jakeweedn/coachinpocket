@@ -1,11 +1,17 @@
 <script setup>
 import { Route } from '@/models/Route.js';
+import { routesService } from '@/services/RoutesService.js';
 
 
-defineProps({
+const props = defineProps({
 
     route: { type: Route, required: true }
 })
+
+function setActiveRoute() {
+
+    routesService.setActiveRoute(props.route)
+}
 
 </script>
 
@@ -14,12 +20,15 @@ defineProps({
 
     <div class="d-flex flex-row">
         <input type="checkbox" class="form-check-input m-2">
-        <h2>{{ route.color }}
-            <span> {{ route.grade }}</span>
+
+        <div @click="setActiveRoute()" data-bs-toggle="modal" data-bs-target="#active-route-modal">
+            <h2>{{ route.color }}
+                <span> {{ route.grade }}</span>
 
 
 
-        </h2>
+            </h2>
+        </div>
     </div>
 
 
