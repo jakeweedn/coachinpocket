@@ -19,6 +19,12 @@ class RoutesService {
 
     }
 
+    async getRoutesBySection(wallSection) {
+        const response = await api.get(`api/sections/${wallSection}/routes`)
+        console.log('🍕', response.data)
+
+    }
+
     async setActiveRoute(selectedRoute) {
 
         AppState.activeRoute = selectedRoute;
