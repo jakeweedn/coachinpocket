@@ -1,5 +1,6 @@
 
 import { routeSectionsService } from "../services/RouteSectionsService.js";
+import { routesService } from "../services/RoutesService.js";
 import BaseController from "../utils/BaseController.js";
 
 
@@ -10,6 +11,7 @@ export class RouteSectionsController extends BaseController {
         super('api/sections')
         this.router
             .get('', this.getAllRouteSections)
+            .get('/:wallSection/routes', this.getRoutesBySection)
             // .use(Auth0Provider.getAuthorizedUserInfo)
 
             .post('', this.createRouteSection)
@@ -33,6 +35,26 @@ export class RouteSectionsController extends BaseController {
             next(error)
 
 
+        }
+
+    }
+
+    async getRoutesBySection(request, response, next) {
+
+        try {
+
+            const wallSection = request.params.wallSection
+            console.log('Getting routes that belong to specific wall section.')
+
+            const routesBySection = await routesService.getRoutesBySection(wallSection)
+            response.send(routesBySection)
+
+
+        }
+
+        catch (error) {
+
+            next(error)
         }
 
     }

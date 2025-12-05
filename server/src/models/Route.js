@@ -7,6 +7,7 @@ export const RouteSchema = new Schema(
         color: { type: String, required: true },
         wallSection: { type: String, required: true },
 
+
         gripType: { type: String, required: true },
         numberOfMoves: { type: Number, min: 0, max: 20 },
         style: { type: String, required: true },

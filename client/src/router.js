@@ -21,7 +21,17 @@ const routes = [
     name: 'Account',
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
+  },
+
+  {
+    path: '/section/:sectionId',
+    name: 'Route Page',
+    component: loadPage('RoutePage')
+
+
   }
+
+  // not sure about path line?
 ]
 
 export const router = createRouter({

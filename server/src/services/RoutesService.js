@@ -18,6 +18,15 @@ class RoutesService {
 
     }
 
+    async getRoutesBySection(wallSection) {
+
+        const routesBySection = await dbContext.Routes.find({ wallSection: wallSection })
+
+        return routesBySection
+
+
+    }
+
     //Only setters should be able to create routes! 
     async createRoute(routeData) {
 

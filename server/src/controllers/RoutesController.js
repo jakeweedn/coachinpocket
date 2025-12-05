@@ -14,6 +14,7 @@ export class RoutesController extends BaseController {
             .get('', this.getAllRoutes)
 
 
+
             // .use(Auth0Provider.getAuthorizedUserInfo)
 
             .post('', this.createRoute)
@@ -43,6 +44,9 @@ export class RoutesController extends BaseController {
 
 
     }
+
+
+
     //Only setters should be able to create routes! 
 
     async createRoute(request, response, next) {
