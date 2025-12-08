@@ -122,7 +122,7 @@ async function getRouteSections() {
       <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name" class="col-sm-3">
 
 
-        <RouterLink :to="{ name: 'Route Page', params: { sectionId: routeSection.id } }"
+        <RouterLink :to="{ name: 'Route Page', params: { routeSectionId: routeSection.id } }"
           title="Go to this section's page!">
           <button @click="selectedWallSection = routeSection.name" class="btn btn-secondary m-2">
             {{ routeSection.name }}

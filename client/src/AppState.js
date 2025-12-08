@@ -20,7 +20,7 @@ export const AppState = reactive({
   routeSections: [],
 
   /** @type {RouteSection} */
-  activeWallSection: null
+  activeRouteSection: null
 
 
 })

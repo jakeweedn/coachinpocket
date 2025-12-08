@@ -19,8 +19,9 @@ class RoutesService {
 
     }
 
-    async getRoutesBySection(wallSection) {
-        const response = await api.get(`api/sections/${wallSection}/routes`)
+    async getRoutesBySection(sectionId) {
+        AppState.routes = []
+        const response = await api.get(`api/routes?wallSection=${sectionId}`)
         console.log('🍕', response.data)
 
     }

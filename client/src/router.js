@@ -24,7 +24,7 @@ const routes = [
   },
 
   {
-    path: '/section/:sectionId',
+    path: '/routeSection/:routeSectionId',
     name: 'Route Page',
     component: loadPage('RoutePage')
 
