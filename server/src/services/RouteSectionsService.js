@@ -10,6 +10,18 @@ class RouteSectionsService {
 
     }
 
+    async getRouteSectionById(routeSectionId) {
+
+        const routeSectionToGet = await dbContext.RouteSections.findById(routeSectionId)
+
+        if (!routeSectionToGet) {
+
+            throw new Error("There is no route section here. Bad id")
+        }
+
+        return routeSectionToGet
+    }
+
     async createRouteSection(routeSectionData) {
 
         const routeSection = await dbContext.RouteSections.create(routeSectionData)

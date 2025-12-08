@@ -10,8 +10,12 @@ export class RouteSectionsController extends BaseController {
 
         super('api/sections')
         this.router
+
             .get('', this.getAllRouteSections)
-            .get('/:wallSection/routes', this.getRoutesBySection)
+            .get('/:routeSectionId', this.getRouteSectionById)
+            .get('/:wallSection/routes', this.getRoutesBySection) //'wallSection' is the attribute on my model and 'RouteSection' is another model itself 
+
+
             // .use(Auth0Provider.getAuthorizedUserInfo)
 
             .post('', this.createRouteSection)
@@ -19,6 +23,11 @@ export class RouteSectionsController extends BaseController {
 
 
     }
+
+
+
+
+
 
 
     async getAllRouteSections(request, response, next) {
@@ -38,6 +47,29 @@ export class RouteSectionsController extends BaseController {
         }
 
     }
+
+    async getRouteSectionById(request, response, next) {
+
+        try {
+
+            const routeSectionId = request.params.routeSectionId
+
+            const routeSectionToGet = await routeSectionsService.getRouteSectionById(routeSectionId)
+
+            response.send(routeSectionToGet)
+
+
+
+        }
+
+        catch (error) {
+            next(error)
+
+
+        }
+    }
+
+
 
     async getRoutesBySection(request, response, next) {
 

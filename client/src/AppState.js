@@ -2,6 +2,7 @@ import { reactive } from 'vue'
 import { Route } from './models/Route.js'
 import { RouteSection } from './models/RouteSection.js'
 
+
 // NOTE AppState is a reactive object to contain app level data
 export const AppState = reactive({
   /**@type {import('@bcwdev/auth0provider-client').Identity} */
@@ -16,7 +17,10 @@ export const AppState = reactive({
   activeRoute: null,
 
   /** @type {RouteSection[]} */
-  routeSections: []
+  routeSections: [],
+
+  /** @type {RouteSection} */
+  activeWallSection: null
 
 
 })

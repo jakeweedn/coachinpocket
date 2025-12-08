@@ -21,14 +21,35 @@ const route = useRoute()
 const router = useRouter()
 
 onMounted(() => {
+    getRouteSection()
     getRoutesBySection()
 
 })
 
 watch(route, () => {
+    getRouteSection()
     getRoutesBySection()
 
 })
+
+
+async function getRouteSection(){
+    try {
+        const routeSection = route.params.
+
+
+
+    }
+
+    catch{
+
+
+
+    }
+
+
+
+}
 
 async function getRoutesBySection() {
 
