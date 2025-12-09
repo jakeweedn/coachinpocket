@@ -21,8 +21,8 @@ class RoutesService {
 
     async getRoutesBySection(sectionId) {
         AppState.routes = []
-        const routeSection = AppState.activeRouteSection // Is this the right idea?? 
-        const response = await api.get(`api/routes?wallSection=${routeSection.name}`) //what should the endpoint be? 
+        // const routeSection = AppState.activeRouteSection // Is this the right idea?? 
+        const response = await api.get(`api/routes?wallSectionId=${sectionId}`) //what should the endpoint be? 
         console.log('🍕', response.data)
 
     }
