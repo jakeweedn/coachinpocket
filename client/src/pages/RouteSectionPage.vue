@@ -1,6 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
-import RouteCard from '@/components/globals/RouteCard.vue';
+import RouteCard from '@/components/RouteCard.vue';
 import ModalWrapper from '@/components/ModalWrapper.vue';
 import RouteDetails from '@/components/RouteDetails.vue';
 import { RouteSection } from '@/models/RouteSection.js';
@@ -12,8 +12,9 @@ import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 
+const routeSection = computed(() => AppState.activeRouteSection)
 const routes = computed(() => AppState.routes)
-const routeSections = computed(() => AppState.routeSections)
+// const routeSections = computed(() => AppState.routeSections)
 
 
 // Trying Jeremy's suggestion below..
@@ -36,7 +37,7 @@ watch(route, () => {
 
 async function getRouteSectionById() {
     try {
-        const sectionId = route.params.routeSectionId
+        const sectionId = route.params.routeSectionId //id of active route section (see computed)
 
         logger.log('Getting the route section', sectionId)
 
@@ -63,7 +64,7 @@ async function getRoutesBySection() {
 
     try {
 
-        const sectionId = route.params.routeSectionId
+        const sectionId = route.params.routeSectionId //id of active route section (see computed)
         // const wallSection = route.params.wallSection
         logger.log('Getting the wall section', sectionId)
         await routesService.getRoutesBySection(sectionId)

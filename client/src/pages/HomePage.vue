@@ -1,6 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
-import RouteCard from '@/components/globals/RouteCard.vue';
+import RouteCard from '@/components/RouteCard.vue';
 import ModalWrapper from '@/components/ModalWrapper.vue';
 import RouteDetails from '@/components/RouteDetails.vue';
 import { routeSectionsService } from '@/services/RouteSectionsService.js';
@@ -122,7 +122,7 @@ async function getRouteSections() {
       <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name" class="col-sm-3">
 
 
-        <RouterLink :to="{ name: 'Route Page', params: { routeSectionId: routeSection.id } }"
+        <RouterLink :to="{ name: 'Route Section Page', params: { routeSectionId: routeSection.id } }"
           title="Go to this section's page!">
           <button @click="selectedWallSection = routeSection.name" class="btn btn-secondary m-2">
             {{ routeSection.name }}

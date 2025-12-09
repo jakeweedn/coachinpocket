@@ -24,6 +24,9 @@ class RouteSectionsService {
         const response = await api.get(`api/sections/${sectionId}`)
         logger.log('⭐️', response.data)
 
+        const routeSection = new RouteSection(response.data)
+        AppState.activeRouteSection = routeSection
+
 
     }
 
