@@ -19,10 +19,10 @@ class RoutesService {
 
     }
 
-    async getRoutesBySection(sectionId) {
+    async getRoutesBySection(routeSectionId) {
         AppState.routes = []
         // const routeSection = AppState.activeRouteSection // Is this the right idea?? 
-        const response = await api.get(`api/sections/${sectionId}/routes`) //what should the endpoint be? This is what is on PostIt reference.... 
+        const response = await api.get(`api/sections/${routeSectionId}/routes`) //what should the endpoint be? This is what is on PostIt reference.... 
         console.log('🍕', response.data)
 
         const routes = response.data.map(routeData => new Route(routeData))

@@ -13,7 +13,7 @@ export class RouteSectionsController extends BaseController {
 
             .get('', this.getAllRouteSections)
             .get('/:routeSectionId', this.getRouteSectionById)
-            .get('/:routeSectionId/routes', this.getRoutesBySection) //'wallSection' is the attribute on my model and 'RouteSection' is another model itself 
+            .get('/:routeSectionId/routes', this.getRoutesBySectionId) //'wallSection' is the attribute on my model and 'RouteSection' is another model itself 
 
 
             // .use(Auth0Provider.getAuthorizedUserInfo)
@@ -71,14 +71,14 @@ export class RouteSectionsController extends BaseController {
 
 
 
-    async getRoutesBySection(request, response, next) {
+    async getRoutesBySectionId(request, response, next) {
 
         try {
 
-            const wallSection = request.params.wallSection
+            const routeSectionId = request.params.routeSectionId
             console.log('Getting routes that belong to specific wall section.')
 
-            const routesBySection = await routesService.getRoutesBySection(wallSection)
+            const routesBySection = await routesService.getRoutesBySection(routeSectionId)
             response.send(routesBySection)
 
 

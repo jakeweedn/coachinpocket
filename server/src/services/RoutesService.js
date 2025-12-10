@@ -18,9 +18,9 @@ class RoutesService {
 
     }
 
-    async getRoutesBySection(wallSection) {
+    async getRoutesBySection(routeSectionId) {
 
-        const routesBySection = await dbContext.Routes.find({ wallSection: wallSection })
+        const routesBySection = await dbContext.Routes.find({ routeSectionId: routeSectionId })
 
         return routesBySection
 
