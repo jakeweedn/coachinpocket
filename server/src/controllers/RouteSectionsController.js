@@ -13,7 +13,7 @@ export class RouteSectionsController extends BaseController {
 
             .get('', this.getAllRouteSections)
             .get('/:routeSectionId', this.getRouteSectionById)
-            .get('/:wallSectionId/routes', this.getRoutesBySection) //'wallSection' is the attribute on my model and 'RouteSection' is another model itself 
+            .get('/:routeSectionId/routes', this.getRoutesBySection) //'wallSection' is the attribute on my model and 'RouteSection' is another model itself 
 
 
             // .use(Auth0Provider.getAuthorizedUserInfo)

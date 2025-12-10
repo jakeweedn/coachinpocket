@@ -37,11 +37,11 @@ watch(route, () => {
 
 async function getRouteSectionById() {
     try {
-        const sectionId = route.params.routeSectionId //id of active route section (see computed)
+        const routeSectionId = route.params.routeSectionId //id of active route section (see computed)
 
-        logger.log('Getting the route section', sectionId)
+        logger.log('Getting the route section', routeSectionId)
 
-        await routeSectionsService.getRouteSectionById(sectionId)
+        await routeSectionsService.getRouteSectionById(routeSectionId)
 
 
 
