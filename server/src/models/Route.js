@@ -5,7 +5,7 @@ export const RouteSchema = new Schema(
     {
         grade: { type: String, required: true },
         color: { type: String, required: true },
-        // wallSection: { type: String, required: true },
+        wallSection: { type: String, required: true }, //Should I have wallSection on here or just wallSectionId?? 
 
         wallSectionId: { type: Schema.ObjectId, ref: 'RouteSection', required: true }, //should type be Schema.ObjectId??    //how does ref work when I am manually entering?? 
 
