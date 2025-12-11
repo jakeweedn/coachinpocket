@@ -17,12 +17,12 @@ watch(theme, () => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md bg-red border-bottom border-vue">
+  <nav class="navbar navbar-expand-md bg-red border-bottom border-vue d-flex">
     <div class="container gap-2 d-flex justify-content-center">
       <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center text-light">
         <!-- <img class="navbar-brand" alt="logo" src="/img/cw-logo.png" height="45" />
          -->
-        <div>
+        <div class="">
           <h1> 🧗‍♀️
             <span class="fs-5"> Coach in Pocket</span>
           </h1>

@@ -142,22 +142,22 @@ async function getRouteSections() {
   <!-- Below will be on separate page...  -->
 
   <section class="container">
-    <div class="row">
+    <!-- <div class="row">
       <div v-for="route in routes" :key="route.id">
         <RouteCard :route="route" />
 
 
-      </div>
+      </div> -->
 
-      <ModalWrapper modalId="active-route-modal" modalTitle="Active Route Modal">
-        <RouteDetails />
-
-
-      </ModalWrapper>
+    <ModalWrapper modalId="active-route-modal" modalTitle="Active Route Modal">
+      <RouteDetails />
 
 
+    </ModalWrapper>
 
-    </div>
+
+
+    <!-- </div> -->
 
 
 

@@ -76,6 +76,24 @@ class RoutesService {
 
     }
 
+    async modifyRouteData(routeId, routeData) {
+
+        const routeToDelete = await dbContext.Routes.findById(routeId)
+
+        if (!routeToDelete) {
+
+            throw new Error("There is no route here. Bad id.")
+        }
+
+        await routeToDelete.deleteOne() // deletes old route
+
+        const routeToCreate = await dbContext.Routes.create(routeData)                           //creates new route with desired properties
+
+        return routeToCreate
+
+
+    }
+
 }
 
 

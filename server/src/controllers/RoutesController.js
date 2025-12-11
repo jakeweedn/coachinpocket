@@ -18,7 +18,9 @@ export class RoutesController extends BaseController {
             // .use(Auth0Provider.getAuthorizedUserInfo)
 
             .post('', this.createRoute)
+
             .put('/:routeId', this.completedRoute)
+            .put('/modify/:routeId', this.modifyRouteData)
             .delete('/:routeId', this.deleteRoute)
 
     }
@@ -124,11 +126,29 @@ export class RoutesController extends BaseController {
         }
     }
 
+    async modifyRouteData(request, response, next) {
+
+        try {
+            const routeId = request.params.routeId
+            const routeData = request.body
+
+            const routeToDelete = await routesService.modifyRouteData(routeId, routeData)
+            response.send(routeToDelete)
 
 
+        }
+
+        catch (error) {
+            next(error)
+
+
+        }
+
+
+
+
+
+    }
 
 
 }
-
-
-
