@@ -84,6 +84,10 @@ async function getRoutesBySection() {
 
 
 
+
+async function updateRouteLog() { }
+
+
 </script>
 
 
@@ -91,25 +95,37 @@ async function getRoutesBySection() {
 
     <section class="container">
         <div class="row">
-            <div v-for="route in routes" :key="route.id">
-                <RouteCard :route="route" />
 
 
-            </div>
+            <!-- Form for routelog. Does this formatting work? Where to put formData ref??  -->
+            <form>
+                <div v-for="route in routes" :key="route.id">
 
-            <ModalWrapper modalId="active-route-modal" modalTitle="Active Route Modal">
-                <RouteDetails />
-
-
-            </ModalWrapper>
+                    <RouteCard :route="route" />
 
 
+                </div>
+
+                <ModalWrapper modalId="active-route-modal" modalTitle="Active Route Modal">
+                    <RouteDetails />
+
+
+                </ModalWrapper>
+
+            </form>
 
         </div>
+
+        <button class="btn btn-warning"> Get Feedback!</button>
 
 
 
     </section>
+
+
+
+
+
 
 </template>
 

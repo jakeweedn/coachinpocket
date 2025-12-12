@@ -1,6 +1,7 @@
 <script setup>
 import { Route } from '@/models/Route.js';
 import { routesService } from '@/services/RoutesService.js';
+import { ref } from 'vue';
 
 
 const props = defineProps({
@@ -13,6 +14,13 @@ function setActiveRoute() {
     routesService.setActiveRoute(props.route)
 }
 
+
+// Will move formData to a different page if need be 
+const formData = ref({
+    completed: ''
+
+
+})
 </script>
 
 
@@ -30,6 +38,7 @@ function setActiveRoute() {
             </h2>
         </div>
     </div>
+
 
 
 </template>
