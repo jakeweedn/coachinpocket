@@ -16,7 +16,7 @@ function setActiveRoute() {
 
 
 // Will move formData to a different page if need be 
-const formData = ref({
+const routeLogData = ref({
     completed: ''
 
 
@@ -27,7 +27,7 @@ const formData = ref({
 <template>
 
     <div class="d-flex flex-row">
-        <input type="checkbox" class="form-check-input m-2">
+        <input v-model="routeLogData.completed" type="checkbox" class="form-check-input m-2">
 
         <div @click="setActiveRoute()" data-bs-toggle="modal" data-bs-target="#active-route-modal">
             <h2>{{ route.color }}

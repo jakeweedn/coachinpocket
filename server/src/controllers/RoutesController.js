@@ -20,6 +20,8 @@ export class RoutesController extends BaseController {
             .post('', this.createRoute)
 
             .put('/:routeId', this.completedRoute)
+
+            //tie in the above with updateRouteLog??
             .put('/modify/:routeId', this.modifyRouteData)
             .delete('/:routeId', this.deleteRoute)
 

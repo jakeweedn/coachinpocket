@@ -10,6 +10,7 @@ import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { routeLogService } from '@/services/RouteLogService.js';
 
 
 const routeSection = computed(() => AppState.activeRouteSection)
@@ -85,7 +86,33 @@ async function getRoutesBySection() {
 
 
 
-async function updateRouteLog() { }
+
+async function updateRouteLog() {
+
+    try {
+
+        logger.log("Updating to", routeLogData.value)
+        await routeLogService.updateRouteLog()
+
+
+    }
+
+    catch (error) {
+        Pop.error(error, "Could not update route log")
+        logger.error(error)
+
+
+    }
+}
+
+const routeLogData = ref({
+    completed: ''
+
+
+})
+
+// Not convinced simply declaring formData twice will solve problem, (variable scope), but I need to get moving. If I do use a prop, keep original formData over here and put prop on routeCard to keep things from getting confusing
+
 
 
 </script>
@@ -98,7 +125,7 @@ async function updateRouteLog() { }
 
 
             <!-- Form for routelog. Does this formatting work? Where to put formData ref??  -->
-            <form>
+            <form @submit.prevent="updateRouteLog()">
                 <div v-for="route in routes" :key="route.id">
 
                     <RouteCard :route="route" />
@@ -106,17 +133,19 @@ async function updateRouteLog() { }
 
                 </div>
 
-                <ModalWrapper modalId="active-route-modal" modalTitle="Active Route Modal">
-                    <RouteDetails />
-
-
-                </ModalWrapper>
+                <button class="btn btn-warning"> (Update Route Log/) Get Feedback!</button>
 
             </form>
 
+            <ModalWrapper modalId="active-route-modal" modalTitle="Active Route Modal">
+                <RouteDetails />
+
+
+            </ModalWrapper>
+
+
         </div>
 
-        <button class="btn btn-warning"> Get Feedback!</button>
 
 
 
