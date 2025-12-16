@@ -6,11 +6,12 @@ export class RouteLogController extends BaseController {
 
     constructor() {
 
-        super('api/routelog')
+        super('api/routeLog')
         this.router
 
-            .get('/routelog', this.getRouteLog)
-            .put('/updateroutelog', this.updateRouteLog)
+            .get('/:routeLogId', this.getRouteLog)
+            .post('/routeLog', this.getFeedBack) //creates routelog
+            .put('/updaterouteLog', this.updateRouteLog)
 
         //do i need an id in the above endpoint?? 
 
@@ -24,7 +25,9 @@ export class RouteLogController extends BaseController {
 
         try {
 
-            const routeLogToGet = await routeLogService.getRouteLog()
+            const routeLogId = request.params.routeLogId
+
+            const routeLogToGet = await routeLogService.getRouteLog(routeLogId)
 
 
         }
@@ -35,6 +38,30 @@ export class RouteLogController extends BaseController {
         }
 
 
+
+    }
+
+    async getFeedBack(request, response, next) {
+
+        try {
+
+            const userData = request.body
+
+            const routeLog = await routeLogService.getFeedback(userData)
+
+            response.send(routeLog)
+
+
+
+        }
+
+        catch (error) {
+
+            next(error)
+
+
+
+        }
 
     }
 

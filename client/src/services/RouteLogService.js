@@ -6,15 +6,15 @@ class RouteLogService {
 
     async getRouteLog() {
 
-        try {
+        // try {
 
-            // const res = await api.get
-        }
+        //     // const res = await api.get
+        // }
 
-        catch {
+        // catch {
 
 
-        }
+        // }
 
 
     }

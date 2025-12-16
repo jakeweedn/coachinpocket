@@ -11,7 +11,7 @@ class DbContext {
 
   Routes = mongoose.model('Route', RouteSchema);
 
-  RouteLog = mongoose.model('RouteLogs', RouteLogSchema);
+  RouteLogs = mongoose.model('RouteLogs', RouteLogSchema);
 
   // Should above be singular or plural? 
 

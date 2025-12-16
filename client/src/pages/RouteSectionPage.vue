@@ -86,13 +86,13 @@ async function getRoutesBySection() {
 
 
 
-
+//Or should it be create Route Log
 async function updateRouteLog() {
 
     try {
 
         logger.log("Updating to", routeLogData.value)
-        await routeLogService.updateRouteLog()
+        // await routeLogService.updateRouteLog()
 
 
     }
