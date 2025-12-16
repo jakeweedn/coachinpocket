@@ -6,7 +6,8 @@ import { ref } from 'vue';
 
 const props = defineProps({
 
-    route: { type: Route, required: true }
+    route: { type: Route, required: true },
+    data: { type: Object }
 })
 
 function setActiveRoute() {
@@ -16,18 +17,18 @@ function setActiveRoute() {
 
 
 // Will move formData to a different page if need be 
-const routeLogData = ref({
-    completed: ''
+// const data = ref({
+//     completed: ''
 
 
-})
+// })
 </script>
 
 
 <template>
 
     <div class="d-flex flex-row">
-        <input v-model="routeLogData.completed" type="checkbox" class="form-check-input m-2">
+        <input v-model="data.completed" type="checkbox" class="form-check-input m-2">
 
         <div @click="setActiveRoute()" data-bs-toggle="modal" data-bs-target="#active-route-modal">
             <h2>{{ route.color }}

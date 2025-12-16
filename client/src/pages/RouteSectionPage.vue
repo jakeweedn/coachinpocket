@@ -128,7 +128,7 @@ const routeLogData = ref({
             <form @submit.prevent="updateRouteLog()">
                 <div v-for="route in routes" :key="route.id">
 
-                    <RouteCard :route="route" />
+                    <RouteCard :route="route" :data="routeLogData" />
 
 
                 </div>
