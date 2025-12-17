@@ -13,6 +13,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { routeLogService } from '@/services/RouteLogService.js';
 
 
+
 const routeSection = computed(() => AppState.activeRouteSection)
 const routes = computed(() => AppState.routes)
 // const routeSections = computed(() => AppState.routeSections)
@@ -128,7 +129,8 @@ const routeLogData = ref({
             <form @submit.prevent="updateRouteLog()">
                 <div v-for="route in routes" :key="route.id">
 
-                    <RouteCard :route="route" :yo="routeLogData" />
+                    <RouteCard :route="route" />
+                    <!-- <RouteCard :route="route" :routeLog="routeLogData" /> -->
 
 
                 </div>

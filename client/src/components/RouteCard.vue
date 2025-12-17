@@ -7,7 +7,7 @@ import { ref } from 'vue';
 const props = defineProps({
 
     route: { type: Route, required: true },
-    yo: { type: Object }
+    routeLog: { type: Object }
 })
 
 function setActiveRoute() {
@@ -28,7 +28,7 @@ function setActiveRoute() {
 <template>
 
     <div class="d-flex flex-row">
-        <input v-model="yo.completed" type="checkbox" class="form-check-input m-2">
+        <input type="checkbox" class="form-check-input m-2">
 
         <div @click="setActiveRoute()" data-bs-toggle="modal" data-bs-target="#active-route-modal">
             <h2>{{ route.color }}
@@ -39,6 +39,7 @@ function setActiveRoute() {
             </h2>
         </div>
     </div>
+
 
 
 
