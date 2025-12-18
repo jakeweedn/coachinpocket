@@ -11,12 +11,13 @@ export class RouteLogController extends BaseController {
 
             .get('/:routeLogId', this.getRouteLog)
             .post('/routeLog', this.getFeedBack) //creates routelog
-            .put('/updaterouteLog', this.updateRouteLog)
+            .put('/updateRouteLog', this.updateRouteLog)
 
         //do i need an id in the above endpoint?? 
 
     }
 
+    //Need to create routeLog before I can get one, but this threw me off...Feels wrong!
 
 
     //will definitely need auth0 stuff for this...

@@ -7,8 +7,10 @@ import { ref } from 'vue';
 const props = defineProps({
 
     route: { type: Route, required: true },
-    routeLog: { type: Object }
+    modelValue: { type: Object }
 })
+
+//I think the above has to be modelValue from video but not 100% sure... 
 
 function setActiveRoute() {
 
@@ -28,7 +30,11 @@ function setActiveRoute() {
 <template>
 
     <div class="d-flex flex-row">
-        <input type="checkbox" class="form-check-input m-2">
+        <label for="route-completed"></label>
+        <input type="checkbox" class="form-check-input m-2" name="route-completed" :value="modelValue"
+            @input="$emit('update: modelValue', $event.target.value)">
+
+        <!-- ts ignore?? -->
 
         <div @click="setActiveRoute()" data-bs-toggle="modal" data-bs-target="#active-route-modal">
             <h2>{{ route.color }}

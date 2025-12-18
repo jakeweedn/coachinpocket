@@ -93,7 +93,7 @@ async function updateRouteLog() {
     try {
 
         logger.log("Updating to", routeLogData.value)
-        // await routeLogService.updateRouteLog()
+        await routeLogService.updateRouteLog(routeLogData.value)
 
 
     }
@@ -112,6 +112,8 @@ const routeLogData = ref({
 
 })
 
+// const routeLogData = ref("")
+
 // Not convinced simply declaring formData twice will solve problem, (variable scope), but I need to get moving. If I do use a prop, keep original formData over here and put prop on routeCard to keep things from getting confusing
 
 
@@ -129,8 +131,9 @@ const routeLogData = ref({
             <form @submit.prevent="updateRouteLog()">
                 <div v-for="route in routes" :key="route.id">
 
-                    <RouteCard :route="route" />
-                    <!-- <RouteCard :route="route" :routeLog="routeLogData" /> -->
+                    <RouteCard :route="route" v-model="routeLogData" />
+                    <!-- <RouteCard :routeLogValue = "routeLogData"
+                     @update: modelValue /> -->
 
 
                 </div>

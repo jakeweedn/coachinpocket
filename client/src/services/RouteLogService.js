@@ -6,22 +6,24 @@ class RouteLogService {
 
     async getRouteLog() {
 
-        // try {
-
-        //     // const res = await api.get
-        // }
-
-        // catch {
+        try {
+            const response = await api.get('')
 
 
-        // }
+        }
+
+        catch (err) {
+            logger.error('HAVE YOU STARTED YOUR SERVER YET', err)
+
+
+        }
 
 
     }
 
     async updateRouteLog(routeLogData) {
 
-        const response = await api.put('', routeLogData)
+        const response = await api.put('/routes', routeLogData)
         logger.log('🍿', response.data)
 
         // const updatedRouteLog = new
