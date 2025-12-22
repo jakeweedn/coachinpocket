@@ -20,12 +20,12 @@ import { computed, onMounted, ref } from 'vue';
 
 
 const routes = computed(() => {
-  if (selectedWallSection.value == 'All') {
+  if (selectedRouteSection.value == 'All') {
     return AppState.routes
 
   }
 
-  return AppState.routes.filter(route => route.wallSection == selectedWallSection.value)
+  return AppState.routes.filter(route => route.routeSection == selectedRouteSection.value)
 
 
 })
@@ -39,7 +39,7 @@ const routeSections = computed(() => AppState.routeSections)
 
 
 const account = computed(() => AppState.account) //come back, do we need on this app? 
-const selectedWallSection = ref('All')
+const selectedRouteSection = ref('All')
 
 
 // const wallSections = [
@@ -119,12 +119,14 @@ async function getRouteSections() {
 
     <div class="row m-2">
 
+      <h2 class="text-center"> Sort by Category</h2>
+
       <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name" class="col-sm-3">
 
 
         <RouterLink :to="{ name: 'Route Section Page', params: { routeSectionId: routeSection.id } }"
           title="Go to this section's page!">
-          <button @click="selectedWallSection = routeSection.name" class="btn btn-secondary m-2">
+          <button @click="selectedRouteSection = routeSection.name" class="btn btn-secondary m-2">
             {{ routeSection.name }}
 
 
@@ -134,8 +136,17 @@ async function getRouteSections() {
 
       </div>
 
-    </div>
 
+    </div>
+    <div class="row d-flex justify-content-center ">
+      <h2 class="text-center"> Or see all routes: </h2>
+
+      <RouterLink :to="{ name: 'All Routes Page' }" title="Go to the page with all the routes!">
+        <div class="text-center">
+          <button class="btn btn-warning w-25 h-50"> All routes</button>
+        </div>
+      </RouterLink>
+    </div>
 
   </section>
 
