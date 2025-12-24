@@ -9,43 +9,47 @@ import { useRoute, useRouter } from 'vue-router';
 
 //Do I need a filter like below or just a getRoutesBySection?? 
 
-// const routes = computed(() => AppState.routes.filter(route => route.routeSection == routeSection))
+const routes = computed(() => AppState.routes.filter(route => route.routeSection == routeSection))
 
-const routes = computed(() => AppState.routes)
+// const routes = computed(() => AppState.routes)
+
+
 const routeSections = computed(() => AppState.routeSections)
+
 
 const route = useRoute()
 const router = useRouter()
 
 onMounted(() => {
 
-    // getRoutesBySection()
+    listRoutesBySection()
+
+
 
 
 
 })
 
-// async function getRoutesBySection() {
+async function listRoutesBySection(routeSectionId) {
 
-//     try {
+    try {
 
-//         const sectionId = route.params.routeSectionId //id of active route section (see computed)
-//         // const wallSection = route.params.wallSection
-//         logger.log('Getting the wall section', sectionId)
-//         await routesService.getRoutesBySection(sectionId)
-
-//     }
-
-//     catch (error) {
-//         Pop.error(error, "Could not get routes that belong to this section!")
-//         logger.error(error)
-//         router.push({ name: 'Home' })
+        await routesService.listRoutesBySection(routeSectionId)
 
 
-//     }
+    }
+
+    catch (error) {
+        Pop.error(error)
+        logger.error(error)
 
 
-// }
+    }
+}
+
+
+
+
 
 
 
@@ -67,6 +71,8 @@ onMounted(() => {
 
             <input type="checkbox" class="form-check-input m-2" name="route-completed">
             <p> {{ route.color }} {{ route.grade }}</p>
+
+            <p> {{ route. }}</p>
 
             <!-- Should probably just put the routeCard above... -->
 

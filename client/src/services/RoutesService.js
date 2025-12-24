@@ -30,6 +30,13 @@ class RoutesService {
 
     }
 
+    async listRoutesBySection(routeSectionId) {
+
+        let selectedRoutes = AppState.routes.find((routes) => routeSection.id == routeSectionId)
+
+
+    }
+
     // const response = await api.get(`api/routes?wallSectionId=${sectionId}`)
 
     async setActiveRoute(selectedRoute) {
