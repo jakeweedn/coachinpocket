@@ -9,9 +9,9 @@ import { useRoute, useRouter } from 'vue-router';
 
 //Do I need a filter like below or just a getRoutesBySection?? 
 
-const routes = computed(() => AppState.routes.filter(route => route.routeSection == routeSection))
+// const routes = computed(() => AppState.routes.filter(route => route.routeSection == routeSection))
 
-// const routes = computed(() => AppState.routes)
+const routes = computed(() => AppState.routes)
 
 
 const routeSections = computed(() => AppState.routeSections)
@@ -22,7 +22,8 @@ const router = useRouter()
 
 onMounted(() => {
 
-    listRoutesBySection()
+    // listRoutesBySection()
+    // getRoutesBySection()
 
 
 
@@ -30,28 +31,42 @@ onMounted(() => {
 
 })
 
-async function listRoutesBySection(routeSectionId) {
+// async function listRoutesBySection(routeSection) {
 
-    try {
+//     try {
 
-        await routesService.listRoutesBySection(routeSectionId)
-
-
-    }
-
-    catch (error) {
-        Pop.error(error)
-        logger.error(error)
+//         await routesService.listRoutesBySection(routeSection)
 
 
-    }
-}
+//     }
+
+//     catch (error) {
+//         Pop.error(error)
+//         logger.error(error)
 
 
+//     }
+// }
+
+// async function getRoutesBySection() {
+
+//     try {
+
+//         const sectionId = route.params.routeSectionId //id of active route section (see computed)
+//         // const wallSection = route.params.wallSection
+//         logger.log('Getting the wall section', sectionId)
+//         await routesService.getRoutesBySection(sectionId)
+
+//     }
+
+//     catch (error) {
+//         Pop.error(error, "Could not get routes that belong to this section!")
+//         logger.error(error)
+//         router.push({ name: 'Home' })
 
 
-
-
+//     }
+// }
 
 
 
@@ -63,16 +78,16 @@ async function listRoutesBySection(routeSectionId) {
 <template>
     <h2 class="text-center"> All routes </h2>
 
-    <div v-for="routeSection in routeSections">
+    <div v-for="routeSection in routeSections" :key="routeSection.id">
 
         <h4> {{ routeSection.name }} </h4>
 
-        <div v-for="route in routes">
+        <div v-for="route in routes.filter(r => r.routeSectionId === routeSection.id)" :key="route.id">
 
             <input type="checkbox" class="form-check-input m-2" name="route-completed">
             <p> {{ route.color }} {{ route.grade }}</p>
 
-            <p> {{ route. }}</p>
+
 
             <!-- Should probably just put the routeCard above... -->
 
@@ -88,7 +103,7 @@ async function listRoutesBySection(routeSectionId) {
 
 
 
-
+    <button class="btn btn-warning"> Get Feedback!</button>
 
 </template>
 

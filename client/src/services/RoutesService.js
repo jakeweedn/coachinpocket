@@ -30,12 +30,19 @@ class RoutesService {
 
     }
 
-    async listRoutesBySection(routeSectionId) {
+    // async listRoutesBySection(routeSectionId) {
 
-        let selectedRoutes = AppState.routes.find((routes) => routeSection.id == routeSectionId)
+    //     // let selectedRoutes = AppState.routes.find((routes) => routeSection.id == routeSectionId)
 
 
-    }
+    // }
+
+    // async listRoutesBySection (routeSection) {
+
+    //     let selectedRoutes = AppState.routes.find ((routes) => route.routeSection )
+    // }
+
+
 
     // const response = await api.get(`api/routes?wallSectionId=${sectionId}`)
 
