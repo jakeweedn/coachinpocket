@@ -11,6 +11,9 @@ export const RouteSchema = new Schema(
 
 
 
+        //Have to take required off routeSection and routeSectionId for completedRoute function to work?? I do not understand this, even after referencing the Rest Lab...
+
+
         gripType: { type: String, required: true },
         numberOfMoves: { type: Number, min: 0, max: 20 },
         style: { type: String, required: true },

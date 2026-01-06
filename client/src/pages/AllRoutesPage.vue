@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import RouteCard from '@/components/RouteCard.vue';
 
 import { routesService } from '@/services/RoutesService.js';
 import { logger } from '@/utils/Logger.js';
@@ -80,12 +81,14 @@ onMounted(() => {
 
     <div v-for="routeSection in routeSections" :key="routeSection.id">
 
-        <h4> {{ routeSection.name }} </h4>
+        <h1> {{ routeSection.name }} </h1>
 
         <div v-for="route in routes.filter(r => r.routeSectionId === routeSection.id)" :key="route.id">
 
-            <input type="checkbox" class="form-check-input m-2" name="route-completed">
-            <p> {{ route.color }} {{ route.grade }}</p>
+            <!-- <input type="checkbox" class="form-check-input m-2" name="route-completed">
+            <p> {{ route.color }} {{ route.grade }}</p> -->
+
+            <RouteCard :route="route" />
 
 
 
