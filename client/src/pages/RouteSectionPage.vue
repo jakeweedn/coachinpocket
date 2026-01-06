@@ -117,6 +117,22 @@ const routeLogData = ref({
 // Not convinced simply declaring formData twice will solve problem, (variable scope), but I need to get moving. If I do use a prop, keep original formData over here and put prop on routeCard to keep things from getting confusing
 
 
+async function deleteRouteSection() {
+    try {
+        await routeSectionsService.deleteRouteSection(routeSectionId)
+
+    }
+
+    catch (error) {
+
+        Pop.toast("Could not delete this route section.")
+
+
+    }
+
+
+}
+
 
 </script>
 
@@ -125,6 +141,8 @@ const routeLogData = ref({
 
     <section class="container">
         <div class="row">
+
+            <button @click=class= "btn btn-info w-25"> 🗑 this section </button>
 
 
             <!-- Form for routelog. Does this formatting work? Where to put formData ref??  -->

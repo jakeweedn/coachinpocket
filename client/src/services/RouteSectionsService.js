@@ -30,6 +30,26 @@ class RouteSectionsService {
 
     }
 
+    async createRouteSection(routeSectionData) {
+
+        const response = await api.post('api/sections', routeSectionData)
+        logger.log('🎨', response.data)
+
+        const createdRouteSection = new RouteSection(response.data)
+        AppState.routeSections.push(createdRouteSection)
+
+        //Above two lines needed for new section to appear on page without refreshing...
+
+
+
+    }
+
+    async deleteRouteSection(routeSectionId) {
+
+
+        const response = await api.delete
+    }
+
 
 
 

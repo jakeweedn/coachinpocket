@@ -10,6 +10,7 @@ import { Pop } from '@/utils/Pop.js';
 import { all } from 'axios';
 import { Modal } from 'bootstrap';
 import { computed, onMounted, ref } from 'vue';
+import RouteSectionForm from '@/components/globals/RouteSectionForm.vue';
 
 
 // const routes = computed(() => AppState.routes)
@@ -120,6 +121,9 @@ async function getRouteSections() {
     <div class="row m-2">
 
       <h2 class="text-center"> Sort by Category</h2>
+
+      <RouteSectionForm> </RouteSectionForm>
+      <button class="btn btn-vue w-25"> + Route Section </button>
 
       <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name" class="col-sm-3">
 
