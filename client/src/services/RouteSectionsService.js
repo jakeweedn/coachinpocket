@@ -44,10 +44,16 @@ class RouteSectionsService {
 
     }
 
-    async deleteRouteSection(routeSectionId) {
+    async deleteRouteSection(sectionId) {
 
 
-        const response = await api.delete
+        const response = await api.delete(`api/sections/${sectionId}`)
+        logger.log('DELETED POST', response.data)
+
+        const index = AppState.routeSections.findIndex(routeSection => routeSection.id == sectionId)
+        AppState.routeSections.splice(index, 1)
+
+        //Why do I need above two lines? Even on refresh, sections stay deleted without the two above lines. Hmmm... 
     }
 
 

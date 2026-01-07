@@ -54,6 +54,20 @@ class RoutesService {
 
     }
 
+    async deleteRoute(routeId) {
+        const response = await api.delete(`api/routes/${routeId}`)
+        logger.log('Deleted route', response.data)
+
+        const index = AppState.routes.findIndex(route => route.id == routeId)
+        AppState.routes.splice(index, 1)
+
+
+
+
+
+
+    }
+
 
 }
 

@@ -119,7 +119,9 @@ const routeLogData = ref({
 
 async function deleteRouteSection() {
     try {
-        await routeSectionsService.deleteRouteSection(routeSectionId)
+        const sectionId = route.params.routeSectionId
+        await routeSectionsService.deleteRouteSection(sectionId)
+        Pop.success('Your route was successfully deleted.')
 
     }
 
@@ -142,7 +144,9 @@ async function deleteRouteSection() {
     <section class="container">
         <div class="row">
 
-            <button @click=class= "btn btn-info w-25"> 🗑 this section </button>
+            <button @click="deleteRouteSection()" class="btn btn-info w-25"> 🗑 this section </button>
+
+            <button class="btn btn-vue w-25"> + route </button>
 
 
             <!-- Form for routelog. Does this formatting work? Where to put formData ref??  -->
