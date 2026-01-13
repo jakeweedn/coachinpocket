@@ -11,6 +11,7 @@ import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { routeLogService } from '@/services/RouteLogService.js';
+import RouteForm from '@/components/RouteForm.vue';
 
 
 
@@ -146,7 +147,9 @@ async function deleteRouteSection() {
 
             <button @click="deleteRouteSection()" class="btn btn-info w-25"> 🗑 this section </button>
 
-            <button class="btn btn-vue w-25"> + route </button>
+
+
+            <RouteForm> </RouteForm>
 
 
             <!-- Form for routelog. Does this formatting work? Where to put formData ref??  -->

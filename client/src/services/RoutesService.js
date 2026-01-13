@@ -68,6 +68,21 @@ class RoutesService {
 
     }
 
+    async createRoute(routeData) {
+
+        const response = await api.post('api/routes', routeData)
+        logger.log('CREATED ROUTE', response.data)
+
+        const route = new Route(response.data)
+        AppState.routes.push(route)
+
+
+
+
+
+
+    }
+
 
 }
 

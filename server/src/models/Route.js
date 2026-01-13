@@ -7,11 +7,13 @@ export const RouteSchema = new Schema(
         color: { type: String, required: true },
         routeSection: { type: String, required: true }, //Should I have wallSection on here or just wallSectionId?? 
 
-        routeSectionId: { type: Schema.ObjectId, ref: 'RouteSection', required: true }, //should type be Schema.ObjectId??    //how does ref work when I am manually entering?? 
+        routeSectionId: { type: String, ref: 'RouteSection' },
+
+
+        //should type be Schema.ObjectId??    //how does ref work when I am manually entering?? 
 
 
 
-        //Have to take required off routeSection and routeSectionId for completedRoute function to work?? I do not understand this, even after referencing the Rest Lab...
 
 
         gripType: { type: String, required: true },
@@ -45,5 +47,16 @@ RouteSchema.virtual('setter', {
 
 
 
+
+
 )
+
+// RouteSchema.virtual('RouteSection', {
+
+//     localField: 'routeSectionId',
+//     foreignField: '_id',
+//     ref: 'RouteSection'
+//     justOne: true
+
+// })
 

@@ -32,7 +32,7 @@ class RoutesService {
 
         const createdRoute = await dbContext.Routes.create(routeData)
 
-        await createdRoute.populate('setter')
+        // await createdRoute.populate('setter').populate('RouteSection')
 
         return createdRoute
 
@@ -40,6 +40,8 @@ class RoutesService {
 
 
     }
+
+    //How to populate more than one thing at once again? 
 
     async deleteRoute(routeId) {
 
