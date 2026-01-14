@@ -5,9 +5,11 @@ export const RouteSchema = new Schema(
     {
         grade: { type: String, required: true },
         color: { type: String, required: true },
-        routeSection: { type: String, required: true }, //Should I have wallSection on here or just wallSectionId?? 
+        // routeSection: { type: String, required: true }, 
+        // 
+        //Should I have wallSection on here or just wallSectionId?? 
 
-        routeSectionId: { type: String, ref: 'RouteSection' },
+        routeSectionId: { type: Schema.ObjectId, ref: 'RouteSection', required: true },
 
 
         //should type be Schema.ObjectId??    //how does ref work when I am manually entering?? 
@@ -51,12 +53,14 @@ RouteSchema.virtual('setter', {
 
 )
 
-// RouteSchema.virtual('RouteSection', {
+RouteSchema.virtual('RouteSection', {
 
-//     localField: 'routeSectionId',
-//     foreignField: '_id',
-//     ref: 'RouteSection'
-//     justOne: true
+    localField: 'routeSectionId',
+    foreignField: '_id',
+    ref: 'RouteSection'
+    justOne: true
 
-// })
+})
 
+
+//What is wrong with the above? Hmmmm? Might not need above since I already have a routeSection! 

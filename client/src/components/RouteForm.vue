@@ -10,7 +10,7 @@ const editableRouteData = ref({
     grade: '',
     color: '',
     routeSection: '',
-    routeSectionId: '',
+    // routeSectionId: '',
     gripType: '',
     numberOfMoves: '',
     style: ''
@@ -31,7 +31,7 @@ async function createRoute() {
             grade: '',
             color: '',
             routeSection: '',
-            routeSectionId: '',
+            // routeSectionId: '',
             gripType: '',
             numberOfMoves: '',
             style: ''
@@ -70,8 +70,8 @@ async function createRoute() {
         <label for="route-section"> Route Section </label>
         <input v-model="editableRouteData.routeSection" type="text" class="form-control" id="route-section">
 
-        <label for="route-section-id"> Route Section I.D. </label>
-        <input v-model="editableRouteData.routeSectionId" type="text" class="form-control" id="route-section-id">
+        <!-- <label for="route-section-id"> Route Section I.D. </label>
+        <input v-model="editableRouteData.routeSectionId" type="text" class="form-control" id="route-section-id"> -->
 
         <!-- Is the type right above?? -->
 
