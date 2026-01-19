@@ -122,7 +122,7 @@ async function deleteRouteSection() {
     try {
         const sectionId = route.params.routeSectionId
         await routeSectionsService.deleteRouteSection(sectionId)
-        Pop.success('Your route was successfully deleted.')
+        Pop.success('This route section was successfully deleted.')
 
     }
 
@@ -147,9 +147,18 @@ async function deleteRouteSection() {
 
             <button @click="deleteRouteSection()" class="btn btn-info w-25"> 🗑 this section </button>
 
+            <button class="btn btn-primary w-25" data-bs-toggle="modal" data-bs-target="#route-form-modal"> + route
+            </button>
 
 
-            <RouteForm> </RouteForm>
+
+            <!-- <RouteForm> </RouteForm> -->
+
+            <ModalWrapper modalId="route-form-modal" modalTitle="Route Form Modal">
+                <RouteForm />
+
+
+            </ModalWrapper>
 
 
             <!-- Form for routelog. Does this formatting work? Where to put formData ref??  -->

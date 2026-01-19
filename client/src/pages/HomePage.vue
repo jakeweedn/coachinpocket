@@ -122,15 +122,25 @@ async function getRouteSections() {
 
       <h2 class="text-center"> Sort by Category</h2>
 
-      <RouteSectionForm> </RouteSectionForm>
-      <button class="btn btn-vue w-25"> + Route Section </button>
+      <!-- <RouteSectionForm> </RouteSectionForm> -->
+
+      <ModalWrapper modalId="route-section-form-modal" modalTitle="Route Section Form Modal">
+        <RouteSectionForm />
+
+      </ModalWrapper>
+
+
+      <button class="btn btn-vue w-25" data-bs-toggle="modal" data-bs-target="#route-section-form-modal"> + Route
+        Section </button>
+
+
 
       <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name" class="col-sm-3">
 
 
         <RouterLink :to="{ name: 'Route Section Page', params: { routeSectionId: routeSection.id } }"
           title="Go to this section's page!">
-          <button @click="selectedRouteSection = routeSection.name" class="btn btn-secondary m-2">
+          <button @click="selectedRouteSection = routeSection.name" class="btn btn-dark m-2">
             {{ routeSection.name }}
 
 
@@ -141,7 +151,9 @@ async function getRouteSections() {
       </div>
 
 
+
     </div>
+
     <div class="row d-flex justify-content-center ">
       <h2 class="text-center"> Or see all routes: </h2>
 
