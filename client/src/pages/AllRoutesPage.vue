@@ -77,37 +77,38 @@ onMounted(() => {
 
 
 <template>
-    <h2 class="text-center"> All routes </h2>
+    <main>
+        <h2 class="text-center"> All routes </h2>
 
-    <div v-for="routeSection in routeSections" :key="routeSection.id">
+        <div v-for="routeSection in routeSections" :key="routeSection.id">
 
-        <h1> {{ routeSection.name }} </h1>
+            <h1> {{ routeSection.name }} </h1>
 
-        <div v-for="route in routes.filter(r => r.routeSectionId === routeSection.id)" :key="route.id">
+            <div v-for="route in routes.filter(r => r.routeSectionId === routeSection.id)" :key="route.id">
 
-            <!-- <input type="checkbox" class="form-check-input m-2" name="route-completed">
+                <!-- <input type="checkbox" class="form-check-input m-2" name="route-completed">
             <p> {{ route.color }} {{ route.grade }}</p> -->
 
-            <RouteCard :route="route" />
+                <RouteCard :route="route" />
 
 
 
-            <!-- Should probably just put the routeCard above... -->
+                <!-- Should probably just put the routeCard above... -->
+
+
+            </div>
 
 
         </div>
 
 
-    </div>
 
 
 
 
 
-
-
-    <button class="btn btn-warning"> Get Feedback!</button>
-
+        <button class="btn btn-warning"> Get Feedback!</button>
+    </main>
 </template>
 
 

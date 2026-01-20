@@ -142,7 +142,7 @@ async function deleteRouteSection() {
 
 <template>
 
-    <section class="container">
+    <main class="container">
         <div class="row">
 
             <button @click="deleteRouteSection()" class="btn btn-info w-25"> 🗑 this section </button>
@@ -188,7 +188,7 @@ async function deleteRouteSection() {
 
 
 
-    </section>
+    </main>
 
 
 

@@ -111,85 +111,95 @@ async function getRouteSections() {
 <template>
 
 
-
-  <section class="container">
-
-
+  <main class="container">
+    <section>
 
 
 
-    <div class="row m-2">
-
-      <h2 class="text-center"> Sort by Category</h2>
-
-      <!-- <RouteSectionForm> </RouteSectionForm> -->
-
-      <ModalWrapper modalId="route-section-form-modal" modalTitle="Route Section Form Modal">
-        <RouteSectionForm />
-
-      </ModalWrapper>
 
 
-      <button class="btn btn-vue w-25" data-bs-toggle="modal" data-bs-target="#route-section-form-modal"> + Route
-        Section </button>
+      <div class="row m-2">
+
+        <h2 class="text-center"> Sort by Route Section: </h2>
+
+        <!-- <RouteSectionForm> </RouteSectionForm> -->
+
+        <ModalWrapper modalId="route-section-form-modal" modalTitle="Route Section Form Modal">
+          <RouteSectionForm />
+
+        </ModalWrapper>
 
 
 
-      <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name" class="col-sm-3">
-
-
-        <RouterLink :to="{ name: 'Route Section Page', params: { routeSectionId: routeSection.id } }"
-          title="Go to this section's page!">
-          <button @click="selectedRouteSection = routeSection.name" class="btn btn-dark m-2">
-            {{ routeSection.name }}
 
 
 
-          </button>
-        </RouterLink>
+        <div v-for="routeSection in routeSections" :key="'filter button-' + routeSection.name" class="col-sm-3">
+
+          <!-- Or col-6  -->
+
+
+          <RouterLink :to="{ name: 'Route Section Page', params: { routeSectionId: routeSection.id } }"
+            title="Go to this section's page!">
+            <button @click="selectedRouteSection = routeSection.name" class="btn btn-light m-2">
+              {{ routeSection.name }}
+
+
+
+            </button>
+          </RouterLink>
+
+        </div>
+
+        <button class="btn btn-secondary w-25" data-bs-toggle="modal" data-bs-target="#route-section-form-modal"> +
+        </button>
+
+
 
       </div>
 
+      <div class="row d-flex justify-content-center ">
+        <h2 class="text-center"> Or see all routes: </h2>
 
+        <RouterLink :to="{ name: 'All Routes Page' }" title="Go to the page with all the routes!">
+          <div class="text-center">
+            <button class="btn btn-info w-25 h-50"> All routes</button>
+          </div>
+        </RouterLink>
+      </div>
 
-    </div>
+    </section>
 
-    <div class="row d-flex justify-content-center ">
-      <h2 class="text-center"> Or see all routes: </h2>
+    <!-- Below will be on separate page...  -->
 
-      <RouterLink :to="{ name: 'All Routes Page' }" title="Go to the page with all the routes!">
-        <div class="text-center">
-          <button class="btn btn-warning w-25 h-50"> All routes</button>
-        </div>
-      </RouterLink>
-    </div>
-
-  </section>
-
-  <!-- Below will be on separate page...  -->
-
-  <section class="container">
-    <!-- <div class="row">
+    <section class="container">
+      <!-- <div class="row">
       <div v-for="route in routes" :key="route.id">
         <RouteCard :route="route" />
 
 
       </div> -->
 
-    <ModalWrapper modalId="active-route-modal" modalTitle="Active Route Modal">
-      <RouteDetails />
+      <ModalWrapper modalId="active-route-modal" modalTitle="Active Route Modal">
+        <RouteDetails />
 
 
-    </ModalWrapper>
-
-
-
-    <!-- </div> -->
+      </ModalWrapper>
 
 
 
-  </section>
+      <!-- </div> -->
 
+
+
+    </section>
+  </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+main {
+
+  background-color: red;
+
+}
+</style>
