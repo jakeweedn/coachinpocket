@@ -145,10 +145,13 @@ async function deleteRouteSection() {
     <main class="container">
         <div class="row">
 
-            <button @click="deleteRouteSection()" class="btn btn-info w-25"> 🗑 this section </button>
+            <div class="d-flex justify-content-between">
+                <button @click="deleteRouteSection()" class="btn btn-info w-25 m-2"> 🗑 Section </button>
 
-            <button class="btn btn-primary w-25" data-bs-toggle="modal" data-bs-target="#route-form-modal"> + route
-            </button>
+                <button class="btn btn-primary w-25 my-2" data-bs-toggle="modal" data-bs-target="#route-form-modal"> +
+                    Route
+                </button>
+            </div>
 
 
 

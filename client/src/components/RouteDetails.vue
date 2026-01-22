@@ -13,7 +13,7 @@ const route = computed(() => AppState.activeRoute)
 
 <template>
 
-    <div v-if="route != null">
+    <div v-if="route != null" class="text-center my-2">
 
         <p> Number of Moves: {{ route.numberOfMoves }} </p>
         <p> Style: {{ route.style }}</p>

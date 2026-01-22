@@ -29,18 +29,28 @@ async function createRouteSection() {
 
 <template>
 
-    <form @submit.prevent="createRouteSection()" class="row">
+    <form @submit.prevent="createRouteSection()">
 
-        <label for="route-section-name"> Route Section Name </label>
-        <input v-model="routeSectionData.name" type="text" id="route-section-name" name="route-section-name" minlength=3
-            maxlength=25 class="form-control w-25" required>
+        <div class=" text-center my-2 justify-content-center">
+            <label for="route-section-name"> Route Section Name </label>
+            <div>
+                <input v-model="routeSectionData.name" type="text" id="route-section-name" name="route-section-name"
+                    minlength=3 maxlength=25 class="form-control w-25 my-2" required>
+            </div>
 
 
 
-        <button class="btn btn-success w-25" type="submit"> Submit </button>
+            <button class="btn btn-success w-25" type="submit"> Submit </button>
+        </div>
     </form>
 
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+input {
+
+    display: block;
+    margin: 0 auto;
+}
+</style>
