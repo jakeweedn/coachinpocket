@@ -14,7 +14,6 @@ import { useRoute, useRouter } from 'vue-router';
 
 const routes = computed(() => AppState.routes)
 
-
 const routeSections = computed(() => AppState.routeSections)
 
 
@@ -26,48 +25,28 @@ onMounted(() => {
     // listRoutesBySection()
     // getRoutesBySection()
 
-
-
+    getRoutes()
 
 
 })
 
-// async function listRoutesBySection(routeSection) {
+async function getRoutes() {
 
-//     try {
-
-//         await routesService.listRoutesBySection(routeSection)
-
-
-//     }
-
-//     catch (error) {
-//         Pop.error(error)
-//         logger.error(error)
+    try {
+        await routesService.getRoutes()
 
 
-//     }
-// }
+    }
 
-// async function getRoutesBySection() {
+    catch (error) {
 
-//     try {
+        Pop.error(error)
+        logger.error(error)
+    }
 
-//         const sectionId = route.params.routeSectionId //id of active route section (see computed)
-//         // const wallSection = route.params.wallSection
-//         logger.log('Getting the wall section', sectionId)
-//         await routesService.getRoutesBySection(sectionId)
-
-//     }
-
-//     catch (error) {
-//         Pop.error(error, "Could not get routes that belong to this section!")
-//         logger.error(error)
-//         router.push({ name: 'Home' })
+}
 
 
-//     }
-// }
 
 
 
@@ -89,20 +68,23 @@ onMounted(() => {
 
 
 
-            <div v-for="route in routes.filter(r => r.routeSectionId === routeSection.id)" :key="route.id">
+            <div v-if="route">
+                <div v-for="route in routes.filter(r => r.routeSectionId === routeSection.id)" :key="route.id">
 
-                <!-- <input type="checkbox" class="form-check-input m-2" name="route-completed">
+                    <!-- <input type="checkbox" class="form-check-input m-2" name="route-completed">
             <p> {{ route.color }} {{ route.grade }}</p> -->
 
-                <RouteCard :route="route" />
+                    <RouteCard :route="route" />
 
 
 
-                <!-- Should probably just put the routeCard above... -->
+                    <!-- Should probably just put the routeCard above... -->
 
 
 
+                </div>
             </div>
+
 
 
         </div>
