@@ -80,9 +80,14 @@ onMounted(() => {
     <main>
         <h2 class="text-center"> All routes </h2>
 
+
         <div v-for="routeSection in routeSections" :key="routeSection.id">
 
-            <h1> {{ routeSection.name }} </h1>
+            <div v-if="routeSection">
+                <h1> {{ routeSection.name }} </h1>
+            </div>
+
+
 
             <div v-for="route in routes.filter(r => r.routeSectionId === routeSection.id)" :key="route.id">
 
@@ -94,6 +99,7 @@ onMounted(() => {
 
 
                 <!-- Should probably just put the routeCard above... -->
+
 
 
             </div>
