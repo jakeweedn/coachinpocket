@@ -26,6 +26,7 @@ onMounted(() => {
     // getRoutesBySection()
 
     getRoutes()
+    getRouteSections()
 
 
 })
@@ -46,6 +47,28 @@ async function getRoutes() {
 
 }
 
+
+async function getRouteSections() {
+
+    try {
+
+        await routesService.getRouteSections()
+
+
+    }
+
+    catch (error) {
+
+        Pop.error(error)
+        logger.error(error)
+
+
+
+    }
+
+
+
+}
 
 
 

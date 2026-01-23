@@ -2,6 +2,7 @@ import { AppState } from "@/AppState.js";
 import { api } from "./AxiosService.js";
 import { Route } from "@/models/Route.js";
 import { logger } from "@/utils/Logger.js";
+import { RouteSection } from "@/models/RouteSection.js";
 
 
 class RoutesService {
@@ -28,6 +29,16 @@ class RoutesService {
         const routes = response.data.map(routeData => new Route(routeData))
         AppState.routes = routes
 
+    }
+
+
+    async getRouteSections() {
+
+        const response = await api.get('api/sections')
+        console.log('📖', response.data)
+
+        const sections = response.data.map(pojo => new RouteSection(pojo))
+        AppState.routeSections = sections
     }
 
     // async listRoutesBySection(routeSectionId) {
