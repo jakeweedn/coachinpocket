@@ -61,31 +61,47 @@ async function createRoute() {
 
         <!-- Maybe only requirement that matters here is required on form??  -->
 
-        <label for="grade"> Grade </label>
-        <input v-model="editableRouteData.grade" type="text" class="form-control" id="grade">
+        <div class="text-center my-2">
+            <label for="grade"> Grade </label>
+            <input v-model="editableRouteData.grade" type="text" class="form-control" id="grade">
+        </div>
 
-        <label for="color"> Color </label>
-        <input v-model="editableRouteData.color" type="text" class="form-control" id="color">
+        <div class="text-center my-2">
+            <label for="color"> Color </label>
+            <input v-model="editableRouteData.color" type="text" class="form-control" id="color">
+        </div>
 
-        <label for="route-section"> Route Section </label>
-        <input v-model="editableRouteData.routeSection" type="text" class="form-control" id="route-section">
+        <div class="text-center my-2">
+            <label for="route-section"> Route Section </label>
+            <input v-model="editableRouteData.routeSection" type="text" class="form-control" id="route-section">
+        </div>
 
-        <label for="route-section-id"> Route Section I.D. </label>
-        <input v-model="editableRouteData.routeSectionId" type="text" class="form-control" id="route-section-id">
+        <div class="text-center my-2">
+            <label for="route-section-id"> Route Section I.D. </label>
+            <input v-model="editableRouteData.routeSectionId" type="text" class="form-control" id="route-section-id">
+        </div>
 
         <!-- Is the type right above?? -->
 
-        <label for="grip-type"> Grip Type </label>
-        <input v-model="editableRouteData.gripType" type="text" class="form-control" id="grip-type">
+        <div class="text-center my-2">
+            <label for="grip-type"> Grip Type </label>
+            <input v-model="editableRouteData.gripType" type="text" class="form-control" id="grip-type">
+        </div>
 
-        <label for="number-of-moves"> Number of Moves </label>
-        <input v-model="editableRouteData.numberOfMoves" type="number" class="form-control" id="number-of-moves">
+        <div class="text-center my-2">
+            <label for="number-of-moves"> Number of Moves </label>
+            <input v-model="editableRouteData.numberOfMoves" type="number" class="form-control" id="number-of-moves">
+        </div>
 
-        <label for="style"> Style </label>
-        <input v-model="editableRouteData.style" type="text" class="form-control" id="style">
+        <div class="text-center my-2">
+            <label for="style"> Style </label>
+            <input v-model="editableRouteData.style" type="text" class="form-control" id="style">
+        </div>
 
 
-        <button class="btn btn-success" type="submit"> + route</button>
+        <div class="text-center">
+            <button class="btn btn-success my-2" type="submit"> + route</button>
+        </div>
 
 
     </form>

@@ -1,6 +1,8 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import ModalWrapper from '@/components/ModalWrapper.vue';
 import RouteCard from '@/components/RouteCard.vue';
+import RouteDetails from '@/components/RouteDetails.vue';
 
 import { routesService } from '@/services/RoutesService.js';
 import { logger } from '@/utils/Logger.js';
@@ -113,7 +115,11 @@ async function getRouteSections() {
         </div>
 
 
+        <ModalWrapper modalId="active-route-modal" modalTitle="Active Route Modal">
+            <RouteDetails />
 
+
+        </ModalWrapper>
 
 
 
