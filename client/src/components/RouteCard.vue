@@ -1,9 +1,10 @@
 <script setup>
+import { AppState } from '@/AppState.js';
 import { Route } from '@/models/Route.js';
 import { routesService } from '@/services/RoutesService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 
 const props = defineProps({
@@ -13,6 +14,8 @@ const props = defineProps({
 })
 
 //I think the above has to be modelValue from video but not 100% sure... 
+
+const account = computed(() => AppState.account)
 
 function setActiveRoute() {
 

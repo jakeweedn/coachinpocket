@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router';
 
 
 const route = computed(() => AppState.activeRoute)
+const account = computed(() => AppState.account)
 
 
 
