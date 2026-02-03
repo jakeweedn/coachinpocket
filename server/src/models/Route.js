@@ -23,7 +23,7 @@ export const RouteSchema = new Schema(
         style: { type: String, required: true },
         rating: { type: Number, min: 1, max: 5, }, //proably not in body of post request, add later like 'completed' in REST 
 
-        setterId: { type: Schema.ObjectId, ref: 'Account' },
+        creatorId: { type: Schema.ObjectId, ref: 'Account' },
         //create setter account? Also add required back on... 
 
         completed: { type: Boolean, default: false, required: true }
@@ -35,12 +35,12 @@ export const RouteSchema = new Schema(
 
 )
 
-RouteSchema.virtual('setter', {
+RouteSchema.virtual('creator', {
 
 
-    localField: 'setterId',
-    foreignField: '_id',
+    localField: 'creatorId',
     ref: 'Account',
+    foreignField: '_id',
     justOne: true
 
 }

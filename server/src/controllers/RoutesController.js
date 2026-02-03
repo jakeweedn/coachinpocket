@@ -14,8 +14,8 @@ export class RoutesController extends BaseController {
             .get('', this.getAllRoutes)
 
 
-
-            // .use(Auth0Provider.getAuthorizedUserInfo)
+            //Below is middleware! Anything below middleware requires user aunthentication. 
+            .use(Auth0Provider.getAuthorizedUserInfo)
 
             .post('', this.createRoute)
 
@@ -61,6 +61,9 @@ export class RoutesController extends BaseController {
 
             // const userId = request.userInfo.id;
             // routeData.setterId = userId;
+
+            const userInfo = request.userInfo
+            routeData.creatorId = userInfo.id
 
             const createdRoute = await routesService.createRoute(routeData)
 

@@ -111,6 +111,7 @@ async function getRouteSections() {
 <template>
 
 
+
   <main class="container">
     <section>
 
@@ -151,8 +152,10 @@ async function getRouteSections() {
 
         </div>
 
-        <button class="btn btn-secondary w-25" data-bs-toggle="modal" data-bs-target="#route-section-form-modal"> +
-        </button>
+        <div v-if="account">
+          <button class="btn btn-secondary w-25" data-bs-toggle="modal" data-bs-target="#route-section-form-modal"> +
+          </button>
+        </div>
 
 
 

@@ -19,6 +19,8 @@ const routeSection = computed(() => AppState.activeRouteSection)
 const routes = computed(() => AppState.routes)
 // const routeSections = computed(() => AppState.routeSections)
 
+const account = computed(() => AppState.account)
+
 
 // Trying Jeremy's suggestion below..
 
@@ -145,12 +147,15 @@ async function deleteRouteSection() {
     <main class="container">
         <div class="row">
 
-            <div class="d-flex justify-content-between">
+            <div v-if="account" class="d-flex justify-content-between">
                 <button @click="deleteRouteSection()" class="btn btn-info w-25 m-2"> 🗑 Section </button>
 
-                <button class="btn btn-primary w-25 my-2" data-bs-toggle="modal" data-bs-target="#route-form-modal"> +
+
+                <button class="btn btn-primary w-25 my-2" data-bs-toggle="modal" data-bs-target="#route-form-modal">
+                    +
                     Route
                 </button>
+
             </div>
 
 

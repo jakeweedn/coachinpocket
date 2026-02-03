@@ -8,7 +8,7 @@ class RoutesService {
 
         const routes = await dbContext.Routes.find()
 
-            .populate('setter')
+            .populate('creator')
 
 
 
@@ -33,6 +33,8 @@ class RoutesService {
         const createdRoute = await dbContext.Routes.create(routeData)
 
         // await createdRoute.populate('setter').populate('RouteSection')
+
+        await createdRoute.populate('creator')
 
         return createdRoute
 
