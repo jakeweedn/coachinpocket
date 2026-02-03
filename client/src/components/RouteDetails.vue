@@ -17,6 +17,8 @@ const route = computed(() => AppState.activeRoute)
 
         <p> Number of Moves: {{ route.numberOfMoves }} </p>
         <p> Style: {{ route.style }}</p>
+        <p> Setter: {{ route.creatorId }}</p>
+        <p> Real Setter: {{ route.creator.name }}</p>
 
         <!-- Do I want this information as a list?? -->
 

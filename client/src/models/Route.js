@@ -5,7 +5,12 @@ export class Route {
     constructor(data) {
 
         this.id = data.id //when do I use underscore?? 
-        this.creratorId = data.creatorId //newly added
+
+        this.creatorId = data.creatorId //newly added
+        this.creator = data.creator
+
+        //might need to modify the above line... 
+
 
         this.grade = data.grade
         this.color = data.color

@@ -86,6 +86,7 @@ class RoutesService {
 
         const route = new Route(response.data)
         AppState.routes.push(route)
+        return route
 
 
 
