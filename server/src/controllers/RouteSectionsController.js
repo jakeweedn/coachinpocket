@@ -1,4 +1,5 @@
 
+import { Auth0Provider } from "@bcwdev/auth0provider";
 import { routeSectionsService } from "../services/RouteSectionsService.js";
 import { routesService } from "../services/RoutesService.js";
 import BaseController from "../utils/BaseController.js";
@@ -16,7 +17,7 @@ export class RouteSectionsController extends BaseController {
             .get('/:routeSectionId/routes', this.getRoutesBySectionId) //'wallSection' is the attribute on my model and 'RouteSection' is another model itself 
 
 
-            // .use(Auth0Provider.getAuthorizedUserInfo)
+            .use(Auth0Provider.getAuthorizedUserInfo)
 
             .post('', this.createRouteSection)
             .delete('/:routeSectionId', this.deleteRouteSection)

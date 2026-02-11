@@ -4,6 +4,7 @@ import { ValueSchema } from '../models/Value.js'
 import { RouteSchema } from '../models/Route.js';
 import { RouteLogSchema } from '../models/RouteLog.js';
 import { RouteSectionSchema } from '../models/RouteSection.js';
+import { WatcherSchema } from '../models/Watcher.js';
 
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
@@ -11,11 +12,13 @@ class DbContext {
 
   Routes = mongoose.model('Route', RouteSchema);
 
-  RouteLogs = mongoose.model('RouteLogs', RouteLogSchema);
+  RouteLogs = mongoose.model('RouteLog', RouteLogSchema);
 
   // Should above be singular or plural? 
 
-  RouteSections = mongoose.model('RouteSections', RouteSectionSchema);
+  RouteSections = mongoose.model('RouteSection', RouteSectionSchema);
+
+  Watchers = mongoose.model('Watcher', WatcherSchema)
 
 }
 
