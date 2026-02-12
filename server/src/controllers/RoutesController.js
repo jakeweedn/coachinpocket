@@ -97,6 +97,9 @@ export class RoutesController extends BaseController {
             // const userId = request.userInfo.id;
             // routeData.authorId = userId 
 
+            const userInfo = request.userInfo
+            routeData.creatorId = userInfo.id
+
             const routeToDelete = await routesService.deleteRoute(routeId)
 
             response.send(routeToDelete)

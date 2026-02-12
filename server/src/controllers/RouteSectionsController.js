@@ -16,6 +16,7 @@ export class RouteSectionsController extends BaseController {
             .get('/:routeSectionId', this.getRouteSectionById)
             .get('/:routeSectionId/routes', this.getRoutesBySectionId) //'wallSection' is the attribute on my model and 'RouteSection' is another model itself 
 
+            .get('/:routeSectionId/watchers', this.getWatchersByRouteSectionId)
 
             .use(Auth0Provider.getAuthorizedUserInfo)
 
@@ -102,6 +103,9 @@ export class RouteSectionsController extends BaseController {
             // const userId = request.userInfo.id;
             // routeSectionData.authorId = userId;
 
+            const userinfo = request.userinfo
+            routeSectionData.creatorId = userinfo.id
+
             const createdRouteSection = await routeSectionsService.createRouteSection(routeSectionData)
 
             response.send(createdRouteSection)
@@ -127,9 +131,13 @@ export class RouteSectionsController extends BaseController {
             // const userId = request.userInfo.id;
             // routeSectionData.setterId = userId;
 
-            //will definitely need to fix the auth0 lines later, not quite right
 
-            const routeSectionToDelete = await routeSectionsService.deleteRouteSection(routeSectionId)
+
+            const userId = request.userInfo.id
+
+
+
+            const routeSectionToDelete = await routeSectionsService.deleteRouteSection(routeSectionId, userId)
 
             response.send(routeSectionToDelete)
 
@@ -142,6 +150,24 @@ export class RouteSectionsController extends BaseController {
 
         }
 
+
+
+    }
+
+    async getWatchersByAlbumId(request, response, next) {
+
+        try {
+
+            const routeSectionId = request.params.routeSectionId
+
+
+        }
+
+        catch (error) {
+            next(error)
+
+
+        }
 
 
     }

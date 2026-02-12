@@ -29,7 +29,7 @@ class RouteSectionsService {
         return routeSection
     }
 
-    async deleteRouteSection(routeSectionId) {
+    async deleteRouteSection(routeSectionId, userId) {
 
         const routeSectionToDelete = await dbContext.RouteSections.findById(routeSectionId)
 
