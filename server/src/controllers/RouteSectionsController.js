@@ -3,6 +3,7 @@ import { Auth0Provider } from "@bcwdev/auth0provider";
 import { routeSectionsService } from "../services/RouteSectionsService.js";
 import { routesService } from "../services/RoutesService.js";
 import BaseController from "../utils/BaseController.js";
+import { watchersService } from "../services/WatchersService.js";
 
 
 export class RouteSectionsController extends BaseController {
@@ -154,11 +155,16 @@ export class RouteSectionsController extends BaseController {
 
     }
 
-    async getWatchersByAlbumId(request, response, next) {
+
+    //Do we really need the below for this app? If watchers serve as notifications for when a route is set, we should assume all climbers care about notifications for ALL route sections, right??
+    async getWatchersByRouteSectionId(request, response, next) {
 
         try {
 
             const routeSectionId = request.params.routeSectionId
+            const watchers = await watchersService.getWatchersByRouteSectionId(routeSectionId)
+
+            response.send(watchers)
 
 
         }

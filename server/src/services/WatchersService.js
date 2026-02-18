@@ -13,6 +13,18 @@ class WatchersService {
 
     }
 
+    async getWatchersByRouteSectionId(routeSectionId) {
+
+        const watchers = await dbContext.Watchers.find({ routeSectionId: routeSectionId })
+
+        //Do I need any populate like in the reference? 
+        return watchers
+
+
+
+
+    }
+
 
 }
 

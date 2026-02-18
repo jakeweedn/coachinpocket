@@ -5,6 +5,7 @@ import { RouteSchema } from '../models/Route.js';
 import { RouteLogSchema } from '../models/RouteLog.js';
 import { RouteSectionSchema } from '../models/RouteSection.js';
 import { WatcherSchema } from '../models/Watcher.js';
+import { UserRouteSchema } from '../models/UserRoute.js';
 
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
@@ -19,6 +20,9 @@ class DbContext {
   RouteSections = mongoose.model('RouteSection', RouteSectionSchema);
 
   Watchers = mongoose.model('Watcher', WatcherSchema)
+  //probably won't need above and can take out later 
+
+  UserRoutes = mongoose.model('UserRoute', UserRouteSchema)
 
 }
 
