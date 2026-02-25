@@ -8,7 +8,7 @@ export const UserRouteSchema = new Schema({
     routeId: { type: Schema.ObjectId, required: true, ref: 'Route' },
     //id of the route that was completed
 
-    completed: { type: Boolean, default: false, required: true },
+    completed: { type: Boolean, default: true, required: true },
     //We'll take the completed off later if we need to.
     attempts: { type: Number }
 
