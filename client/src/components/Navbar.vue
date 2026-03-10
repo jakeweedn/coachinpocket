@@ -35,15 +35,25 @@ watch(theme, () => {
       </button>
       <!-- collapsing menu -->
       <div class="collapse navbar-collapse " id="navbar-links">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav d-flex justify-content-right">
           <li>
             <RouterLink :to="{ name: 'About' }" class="btn text-green selectable">
               About
             </RouterLink>
           </li>
+
+          <li>
+
+          </li>
         </ul>
+
+
+
         <!-- LOGIN COMPONENT HERE -->
         <div class="ms-auto">
+
+          <RouterLink :to="{ name: 'Stats Page' }" class="btn btn-warning"> My Stats
+          </RouterLink>
           <button class="btn text-light" @click="toggleTheme"
             :title="`Enable ${theme == 'light' ? 'dark' : 'light'} theme.`">
             <i v-if="theme == 'dark'" class="mdi mdi-weather-sunny"></i>

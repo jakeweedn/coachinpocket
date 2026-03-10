@@ -38,6 +38,14 @@ const routes = [
     component: loadPage('AllRoutesPage')
 
 
+  },
+
+  {
+    path: '/stats',
+    name: 'Stats Page',
+    component: loadPage('StatsPage')
+
+
   }
 
   // not sure about path line?
