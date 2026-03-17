@@ -10,30 +10,23 @@ vt
 
     <table border="1">
         <tr>
-            <th>
-                V-grade
-            </th>
-            <th>
-                Coordination
-
-            </th>
-
-            <th> Technical </th>
-
-
-            <th> Strength </th>
-
+            <th> V-grade </th>
+            <th> Coordination </th>
+            <th> Technical</th>
+            <th> Strength</th>
 
             <th> Power/Dynamic </th>
-
             <th> SUM </th>
-
 
         </tr>
         <tr>
             <td> 4 </td>
-
             <td> 0 </td>
+            <td> 5 </td>
+            <td> 6 </td>
+            <td> 2 </td>
+            <td> 17 </td>
+
 
 
 
