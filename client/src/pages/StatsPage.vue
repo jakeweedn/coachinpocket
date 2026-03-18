@@ -1,5 +1,8 @@
-vt
 <script setup>
+import { Chart } from 'chart.js';
+
+
+Chart
 
 </script>
 

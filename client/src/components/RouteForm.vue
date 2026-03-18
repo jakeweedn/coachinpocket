@@ -95,7 +95,20 @@ async function createRoute() {
 
         <div class="text-center my-2">
             <label for="style"> Style </label>
-            <input v-model="editableRouteData.style" type="text" class="form-control" id="style">
+            <select id="style" name="style" class="form-control" v-model="editableRouteData.style">
+                <option vallue="coordination "> Coordination </option>
+                <option value="technical"> Technical</option>
+                <option value="strength"> Strength </option>
+                <option value="power/dynamic"> Power/Dynamic </option>
+
+
+
+
+            </select>
+
+
+
+            <!-- <input v-model="editableRouteData.style" type="text" class="form-control" id="style"> -->
         </div>
 
 

@@ -145,6 +145,8 @@ async function deleteRouteSection() {
 <template>
 
     <main class="container">
+
+        <h1 class="text-center" v-if="routeSection"> {{ routeSection.name }} </h1>
         <div class="row">
 
             <div v-if="account" class="d-flex justify-content-between">
