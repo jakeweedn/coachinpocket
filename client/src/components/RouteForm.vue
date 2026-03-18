@@ -84,8 +84,20 @@ async function createRoute() {
         <!-- Is the type right above?? -->
 
         <div class="text-center my-2">
-            <label for="grip-type"> Grip Type </label>
-            <input v-model="editableRouteData.gripType" type="text" class="form-control" id="grip-type">
+            <label for="grip-type"> Grip Type (select below) </label>
+            <select id="grip-type" name="grip-type" class="form-control" v-model="editableRouteData.gripType">
+
+                <option value="jug"> Jug </option>
+                <option value="crimp"> Crimp </option>
+                <option value="sloper"> Sloper </option>
+
+
+
+
+            </select>
+
+
+            <!-- <input v-model="editableRouteData.gripType" type="text" class="form-control" id="grip-type"> -->
         </div>
 
         <div class="text-center my-2">
@@ -94,7 +106,7 @@ async function createRoute() {
         </div>
 
         <div class="text-center my-2">
-            <label for="style"> Style </label>
+            <label for="style"> Style (select below) </label>
             <select id="style" name="style" class="form-control" v-model="editableRouteData.style">
                 <option vallue="coordination "> Coordination </option>
                 <option value="technical"> Technical</option>

@@ -18,12 +18,14 @@ const account = computed(() => AppState.account)
 
         <p> Number of Moves: {{ route.numberOfMoves }} </p>
         <p> Style: {{ route.style }}</p>
-        <p> Setter: {{ route.creator.name }} </p>
+        <p> Grip Type: {{ route.gripType }} </p>
+        <p v-if="route.creator"> Setter: {{ route.creator.name }} </p>
 
         <!-- <p> Real Setter: {{ route.creator.name }}</p> -->
 
         <!-- Do I want this information as a list?? -->
 
+        <!-- Why won't creator show up on route section's page??  -->
 
 
     </div>
